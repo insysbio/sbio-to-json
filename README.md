@@ -30,7 +30,7 @@ fprintf(fileID, json);
 fclose(fileID);
 ```
 
-## Convert to pretty JSON using JSONLab
+## Convert to pretty JSON
 
 1. Download JSONlab package (https://github.com/fangq/jsonlab) and add the path to the package
 ```matlab
@@ -43,55 +43,55 @@ json=savejson('', strc,'model-pretty.json');
 ```
 ```json
 {
-	"Annotation": {
-	},
-	"Events": {
-	},
-	"Name": "Antibacterial",
-	"Notes": {
-	},
-	"Parameters": [
-		[
-			{
-				"Annotation": {
-				},
-				"ConstantValue": 1,
-				"Name": "KC50",
-				"Notes": {
-				},
-				"Parent": "Antibacterial",
-				"Tag": {
-				},
-				"Type": "parameter",
-				"UserData": {
-				},
-				"Value": 1,
-				"ValueUnits": "microgram\/milliliter"
-			}
-		],
-		[
-			{
-				"Annotation": {
-				},
-				"ConstantValue": 1,
-				"Name": "Kmax",
-				"Notes": {
-				},
-				"Parent": "Antibacterial",
-				"Tag": {
-				},
-				"Type": "parameter",
-				"UserData": {
-				},
-				"Value": 3.5,
-				"ValueUnits": "1\/hour"
-			}
-		],
+  "Annotation": {
+  },
+  "Events": {
+  },
+  "Name": "Antibacterial",
+  "Notes": {
+  },
+  "Parameters": [
+    [
+      {
+        "Annotation": {
+        },
+        "ConstantValue": 1,
+        "Name": "KC50",
+        "Notes": {
+        },
+        "Parent": "Antibacterial",
+        "Tag": {
+        },
+        "Type": "parameter",
+        "UserData": {
+        },
+        "Value": 1,
+        "ValueUnits": "microgram\/milliliter"
+      }
+    ],
+    [
+      {
+        "Annotation": {
+        },
+        "ConstantValue": 1,
+        "Name": "Kmax",
+        "Notes": {
+        },
+        "Parent": "Antibacterial",
+        "Tag": {
+        },
+        "Type": "parameter",
+        "UserData": {
+        },
+        "Value": 3.5,
+        "ValueUnits": "1\/hour"
+      }
+    ],
 ...
 ```
 
-## Convert to YAML using
-1. Download Matlab YAML package (http://vision.is.tohoku.ac.jp/~kyamagu/software/yaml/) and add the path to the package
+## Convert to YAML
+1. Download Matlab YAML package (https://github.com/hiroshiban/Mcalibrator2/tree/master/subfunctions/ifit-1.5/Objects/yaml) and add the path to the package
 ```matlab
 addpath('Y:\yaml');
 ```
@@ -101,3 +101,12 @@ addpath('Y:\yaml');
 yaml = YAML.dump(strc);
 YAML.write('model.yml', yaml);
 ```
+
+## Other
+
+### Authors
+- @metelkin
+- @ivborissov
+
+### License
+Apache 2.0

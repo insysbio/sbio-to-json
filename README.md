@@ -2,11 +2,11 @@
 Package for transformation of Matlab/Simbiology objects to regular structures accesible for serialization like JSON, YAML etc.
 
 ## Motivation
-SimBiology is a popular tool for modeling in systems biology and systems pharmacology. It stores models in internal objects which can be created or modified by GUI or by Matlab scripting. Nevertheless in some cases you need representation of the model code in general-porpose way for additional analysis or exporting to another tools.
+**SimBiology** is a popular tool for modeling in systems biology and systems pharmacology. It stores models in internal objects which can be created or modified by GUI or by Matlab scripting. Nevertheless in some cases you need representation of the model code in general-porpose way for additional analysis or exporting to another tools.
 
-JSON (JavaScript Object Notation) is one of two most popular formats of searilization and it is supported by all programming languages. So it a good choice for model exporting.
+**JSON** (JavaScript Object Notation) is one of two most popular formats of searilization and it is supported by all programming languages. So it a good choice for model exporting.
 
-Matlab provides function `jsonencode()` function but it cannot be used for `SimBilogy.` objects directly. `SbioToStruct()` function solves the problem.
+Matlab provides function `jsonencode()` function but it cannot be used for `SimBiology.*` objects directly. `SbioToStruct()` function solves the problem.
 
 ## Installation
 
@@ -17,7 +17,7 @@ addpath('Y:\sbio-to-json');
 
 ## Quick demo
 
-1. Load model from sbio demos.
+1. Load model from simbiodemos.
 ```matlab
 out = sbioloadproject('C:\Program Files\MATLAB\R2017b\toolbox\simbio\simbiodemos\AntibacterialPKPD.sbproj');
 model = out.m1;
@@ -38,7 +38,7 @@ fclose(fileID);
 ```
 
 ## Convert to pretty JSON
-Steps 1 and 2 as above...
+Steps 1 and 2 as above... but
 
 3. Download JSONlab package (https://github.com/fangq/jsonlab) and add the path to the package
 ```matlab
@@ -89,7 +89,7 @@ json=savejson('', strc,'model-pretty.json');
 **Note!** JSONlab provides nice and flexible serialization but the structure of final JSON differ from `jsonencode()` function.
 
 ## Convert to YAML
-Steps 1 and 2 as above...
+Steps 1 and 2 as above... but
 
 3. Download Matlab YAML package (https://github.com/hiroshiban/Mcalibrator2/tree/master/subfunctions/ifit-1.5/Objects/yaml) and add the path to the package
 ```matlab
@@ -104,7 +104,7 @@ YAML.write('model.yml', yaml);
 
 ## Another object to convert
 
-The package can also be used for another object which includes `SimBiology.` objects.
+The package can also be used for another object which includes `SimBiology.*` objects.
 ```matlab
 root = sbioroot;
 rootStruct = SbioToStruct(root);

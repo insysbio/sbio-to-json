@@ -10,7 +10,7 @@ Matlab provides function `jsonencode()` function but it cannot be used for `SimB
 
 ## Installation
 
-1. Upload file SbioToStruct.m or whole package from (https://github.com/insysbio/sbio-to-json) and add the path to the package.
+1. Download file SbioToStruct.m or whole package from (https://github.com/insysbio/sbio-to-json) and add the path to the package.
 ```matlab
 addpath('Y:\sbio-to-json');
 ```

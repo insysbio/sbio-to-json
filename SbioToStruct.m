@@ -19,9 +19,8 @@ function out = SbioToStruct(x)
     elseif isscalar(x) && contains(class(x),'SimBiology') % structure-like classes
         fn = fieldnames(x);
         if isa(x,'SimBiology.Model')
-            fn{end+1} = 'Doses';
-            fn{end+1} = 'Variants';
-            fn{end+1} = 'Configset';
+            add_names = [{'Doses'}; {'Variants'}; {'Configset'}];
+            fn = [fn; add_names];
         end
         res = struct;
         for i = 1:length(fn)

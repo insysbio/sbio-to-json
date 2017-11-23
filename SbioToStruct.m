@@ -18,10 +18,15 @@ function out = SbioToStruct(x)
         out = arrayfun(@(x) SbioToStruct(x), x, 'UniformOutput', true);
     elseif isscalar(x) && contains(class(x),'SimBiology') % structure-like classes
         fn = fieldnames(x);
+        if isa(x,'SimBiology.Model')
+            fn{end+1} = 'Doses';
+            fn{end+1} = 'Variants';
+            fn{end+1} = 'Configset';
+        end
         res = struct;
         for i = 1:length(fn)
-            % 'Parent' case exception 
-            if strcmp(fn{i}, 'Parent') && not(isempty(x.Parent))
+            % 'Parent' case exception
+            if strcmp(fn{i}, 'Parent') && ~isempty(x.Parent)
                 if isa(x.Parent, 'SimBiology.Root')
                     value = class(x.Parent);
                 else
@@ -42,8 +47,7 @@ function out = SbioToStruct(x)
             else
                 b = SbioToStruct(value);
             end
-            
-            res = setfield(res, fn{i}, b);
+            res.(fn{i}) = b;
         end
         out = res;
     elseif isempty(x) && ~isa(x, 'char')% other empty objects like cells
@@ -51,12 +55,13 @@ function out = SbioToStruct(x)
     else % empty characters, native matlab structures
         out = x;
     end
-end
+end %function
 
 % working with exceptions
 function value = exceptionValues(x, name_i)
-   value = cell(1,length(get(x, name_i)));
-   for j = 1:length(get(x, name_i))
+   x_i = get(x, name_i);
+   value = cell(1,length(x_i));
+   for j = 1:length(x_i)
        value{j} = get(getfield(x, name_i,{j}), 'Name');
    end
 end

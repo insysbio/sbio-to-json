@@ -86,7 +86,7 @@ json=savejson('', strc,'model-pretty.json');
     ],
 ...
 ```
-**Note!** JSONlab provides nice and flexible serialization but the structure of final JSON differ from `jsonencode()` function.
+**Note!** JSONlab provides nice and flexible serialization but the structure of final JSON may differ from `jsonencode()` function depending on serialization options.
 
 ## Convert to YAML
 Steps 1 and 2 as above... but
